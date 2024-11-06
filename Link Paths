@@ -1,0 +1,128 @@
+
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <script language="javascript" type="text/javascript">
+      (() => {
+        var { matches: isRestMode } = window.matchMedia('(prefers-color-scheme: dark)');
+        var hasHumanOverride = (typeof localStorage !== 'undefined' && localStorage.getItem('restMode') !== null);
+        var humanElement = document.documentElement;
+        var nightVision = 'rgb(17 24 39)';
+        var dayVision = '#ffffff';
+
+        var visualSettings = {
+          true: {
+            bgColor: nightVision,
+            textColor: dayVision,
+            removeClass: 'light',
+            addClass: 'dark'
+          },
+          false: {
+            bgColor: dayVision,
+            textColor: nightVision,
+            removeClass: 'dark',
+            addClass: 'light'
+          }
+        };
+
+        var config = visualSettings[isRestMode];
+        window.enjoyTheVue = hasHumanOverride; // Set a flag to indicate when Vue has taken control
+
+        // Function to adjust the visual environment
+        function adjustVisualEnvironment() {
+          if (window.enjoyTheVue) return;
+
+          humanElement.style.setProperty('--bg-color', config.bgColor);
+          humanElement.style.setProperty('--text-color', config.textColor);
+          humanElement.classList.remove(config.removeClass);
+          humanElement.classList.add(config.addClass);
+        }
+
+        // Initial adjustment
+        adjustVisualEnvironment();
+
+        // Re-adjust on system color scheme change
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+          isRestMode = e.matches;
+          config = visualSettings[isRestMode];
+          adjustVisualEnvironment();
+        });
+      })();
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onetime Secret</title>
+    <meta name="description" content="Keep sensitive information out of your chat logs and email. Share a secret link that is available only one time.">
+    <meta name="keywords" content="secret,password generator,share a secret,onetime">
+    
+    <!-- OG Meta Tags -->
+    <meta property="og:url" content="https://eu.onetimesecret.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Onetime Secret">
+    <meta property="og:description" content="Keep sensitive information out of your chat logs and email. Share a secret link that is available only one time.">
+    <meta property="og:image" content="https://eu.onetimesecret.com/img/social-preview.png">
+    
+    <!-- X Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="eu.onetimesecret.com">
+    <meta property="twitter:url" content="https://eu.onetimesecret.com">
+    <meta name="twitter:title" content="Onetime Secret">
+    <meta name="twitter:description" content="Keep sensitive information out of your chat logs and email. Share a secret link that is available only one time.">
+    <meta name="twitter:image" content="https://eu.onetimesecret.com/img/social-preview.png">
+    
+    <meta name="msapplication-TileColor" content="#dc4a22">
+    <meta name="theme-color" content="#dc4a22">
+    <meta name="apple-mobile-web-app-title" content="Onetime Secret">
+    <meta name="application-name" content="Onetime Secret">
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=3">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=3">
+    <link rel="manifest" href="/site.webmanifest?v=3">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=3" color="#dc4a22">
+    <link rel="shortcut icon" href="/favicon.ico?v=3">
+    
+    <script type="text/javascript">
+      var authenticated = false;
+      var authentication = {"enabled":true,"signup":true,"signin":true,"autoverify":false};
+      var available_plans = {"anonymous":{"planid":"anonymous","price":0,"discount":0,"options":{"ttl":604800.0,"size":100000,"api":false,"name":"Anonymous"}},"f422637b":{"planid":"anonymous","price":0,"discount":0,"options":{"ttl":604800.0,"size":100000,"api":false,"name":"Anonymous"}},"basic":{"planid":"basic","price":0,"discount":0,"options":{"ttl":1209600.0,"size":1000000,"api":true,"name":"Basic Plan","email":true,"custom_domains":false,"dark_mode":true}},"b0f9a4f9":{"planid":"basic","price":0,"discount":0,"options":{"ttl":1209600.0,"size":1000000,"api":true,"name":"Basic Plan","email":true,"custom_domains":false,"dark_mode":true}},"identity":{"planid":"identity","price":35,"discount":0,"options":{"ttl":2592000.0,"size":10000000,"api":true,"name":"Identity","email":true,"custom_domains":true,"dark_mode":true}},"64629795":{"planid":"identity","price":35,"discount":0,"options":{"ttl":2592000.0,"size":10000000,"api":true,"name":"Identity","email":true,"custom_domains":true,"dark_mode":true}},"personal_v1":{"planid":"personal_v1","price":5.0,"discount":1,"options":{"ttl":1209600.0,"size":1000000,"api":false,"name":"Personal"}},"06c94d36":{"planid":"personal_v1","price":5.0,"discount":1,"options":{"ttl":1209600.0,"size":1000000,"api":false,"name":"Personal"}},"personal_v2":{"planid":"personal_v2","price":10.0,"discount":0.5,"options":{"ttl":2592000.0,"size":1000000,"api":true,"name":"Personal"}},"db240101":{"planid":"personal_v2","price":10.0,"discount":0.5,"options":{"ttl":2592000.0,"size":1000000,"api":true,"name":"Personal"}},"personal_v3":{"planid":"personal_v3","price":5.0,"discount":0,"options":{"ttl":1209600.0,"size":1000000,"api":true,"name":"Personal"}},"acdeb348":{"planid":"personal_v3","price":5.0,"discount":0,"options":{"ttl":1209600.0,"size":1000000,"api":true,"name":"Personal"}},"professional_v1":{"planid":"professional_v1","price":30.0,"discount":0.5,"options":{"ttl":2592000.0,"size":1000000,"api":true,"cname":true,"name":"Professional"}},"7a49c470":{"planid":"professional_v1","price":30.0,"discount":0.5,"options":{"ttl":2592000.0,"size":1000000,"api":true,"cname":true,"name":"Professional"}},"professional_v2":{"planid":"professional_v2","price":30.0,"discount":0.333333,"options":{"ttl":2592000.0,"size":1000000,"api":true,"cname":true,"name":"Professional"}},"aabbdd0c":{"planid":"professional_v2","price":30.0,"discount":0.333333,"options":{"ttl":2592000.0,"size":1000000,"api":true,"cname":true,"name":"Professional"}},"agency_v1":{"planid":"agency_v1","price":100.0,"discount":0.25,"options":{"ttl":2592000.0,"size":1000000,"api":true,"private":true,"name":"Agency"}},"c14f9a02":{"planid":"agency_v1","price":100.0,"discount":0.25,"options":{"ttl":2592000.0,"size":1000000,"api":true,"private":true,"name":"Agency"}},"agency_v2":{"planid":"agency_v2","price":75.0,"discount":0.33333333,"options":{"ttl":2592000.0,"size":1000000,"api":true,"private":true,"name":"Agency"}},"86b648fb":{"planid":"agency_v2","price":75.0,"discount":0.33333333,"options":{"ttl":2592000.0,"size":1000000,"api":true,"private":true,"name":"Agency"}},"basic_v1":{"planid":"basic_v1","price":10.0,"discount":0.5,"options":{"ttl":2592000.0,"size":1000000,"api":true,"name":"Basic"}},"ce972d2c":{"planid":"basic_v1","price":10.0,"discount":0.5,"options":{"ttl":2592000.0,"size":1000000,"api":true,"name":"Basic"}},"individual_v1":{"planid":"individual_v1","price":0,"discount":0,"options":{"ttl":1209600.0,"size":1000000,"api":true,"name":"Individual"}},"88541731":{"planid":"individual_v1","price":0,"discount":0,"options":{"ttl":1209600.0,"size":1000000,"api":true,"name":"Individual"}},"nonprofit_v1":{"planid":"nonprofit_v1","price":0,"discount":0,"options":{"ttl":2592000.0,"size":1000000,"api":true,"cname":true,"name":"Non Profit"}},"9d1ab769":{"planid":"nonprofit_v1","price":0,"discount":0,"options":{"ttl":2592000.0,"size":1000000,"api":true,"cname":true,"name":"Non Profit"}}};
+      var default_planid = 'basic';
+      var form_fields = null;
+      var frontend_host = 'http://localhost:5173';
+      var global_banner = '2024-10-25: We have a new &lt;a href=&#x27;https:&#x2F;&#x2F;blog.onetimesecret.com&#x2F;posts&#x2F;2024-10-23-us-data-center&#x27; class=&#x27;underline&#x27; rel=&#x27;noopener noreferrer&#x27;&gt;US location&lt;&#x2F;a&gt; along with a new &lt;a href=&#x27;&#x2F;info&#x2F;terms&#x27; class=&#x27;underline&#x27; rel=&#x27;noopener noreferrer&#x27;&gt;Terms of Service&lt;&#x2F;a&gt; and updated &lt;a href=&#x27;&#x2F;info&#x2F;privacy&#x27; class=&#x27;underline&#x27; rel=&#x27;noopener noreferrer&#x27;&gt;Privacy Policy&lt;&#x2F;a&gt;.';
+      var incoming_recipient = 'custom@onetimesecret.com';
+      var is_default_locale = false;
+      var is_paid = false;
+      var locale = 'en';
+      var ot_version = '0.18.4';
+      var plan = {"planid":"anonymous","price":0,"discount":0,"options":{"ttl":604800.0,"size":100000,"api":false,"name":"Anonymous"}};
+      var plans_enabled = true;
+      var regions = {"enabled":true,"current_jurisdiction":"EU","jurisdictions":[{"identifier":"EU","display_name":"European Union","domain":"eu.onetimesecret.com","icon":"fa6-solid:earth-europe"},{"identifier":"US","display_name":"United States","domain":"us.onetimesecret.com","icon":"fa6-solid:earth-americas"}]};
+      var regions_enabled = true;
+      var ruby_version = 'ruby-335';
+      var secret_options = {"default_ttl":604800.0,"ttl_options":[300,1800,3600,14400,43200,86400,259200,604800,1209600]};
+      var shrimp = '30nen16lvtllb6lsy6g10zxuu3m2m84qm8onfjgasuxlxfljr0';
+      var site_host = 'eu.onetimesecret.com';
+      var support_host = 'https://docs.onetimesecret.com';
+      var supported_locales = ["en","ar","bg","ca_ES","cn","cs","da_DK","de","el_GR","en","es","fr","fr_FR","he","hu","it_IT","nl","pl","pt_BR","pt_PT","ru","sl_SI","sv_SE","tr","uk","vi"];
+    </script>
+    
+    <script type="module" src="/dist/assets/main-DeZtl029.js"></script>
+    <link rel="stylesheet" href="/dist/assets/main-CwH9Zowd.css">
+    <link rel="preload" href="/dist/assets/ZillaSlab-Bold-BSphAb8W.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="/dist/assets/ZillaSlab-Bold-CZCnI8e7.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/dist/assets/ZillaSlab-BoldItalic-BG1CNiCK.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="/dist/assets/ZillaSlab-BoldItalic-q1iItYoI.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/dist/assets/ZillaSlab-Italic-B4KlKyMb.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="/dist/assets/ZillaSlab-Italic-DQuJfL-3.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/dist/assets/ZillaSlab-Regular-2Acx4doP.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="/dist/assets/ZillaSlab-Regular-CpTS5Ubm.woff2" as="font" type="font/woff2" crossorigin>
+  </head>
+  <body class="font-serif bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    
+    <div id="app"><router-view></router-view></div>
+  </body>
+</html>
